@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ItisHub</string>
+    <string name="Main">Главная</string>
+    <string name="Subjects">Предметы</string>
+    <string name="about_us">О нас</string>
+    <string name="item_lessons">Уроков</string>
+    <string name="creatorAvatar">creatorAvatar</string>
+</resources>
