@@ -1,6 +1,5 @@
 package com.example.itishub.data.retrofit.entities
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 

@@ -11,7 +11,9 @@ data class CourseResponse(
     @SerializedName("title")
     var title: String,
     @SerializedName("url")
-    var url: String
+    var url: String,
+    @SerializedName("image")
+    var image: String?
 ) {
     data class Lesson(
         @SerializedName("description")

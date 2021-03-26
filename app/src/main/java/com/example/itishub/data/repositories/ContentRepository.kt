@@ -1,12 +1,11 @@
-package com.example.itishub.domain
+package com.example.itishub.data.repositories
 
 import androidx.lifecycle.LiveData
-import com.example.itishub.data.retrofit.entities.CourseResponse
-import com.example.itishub.data.retrofit.entities.CreatorResponse
+import com.example.itishub.data.retrofit.entities.Review
 import com.example.itishub.data.room.entities.Creator
+import com.example.itishub.data.room.entities.Lesson
 import com.example.itishub.data.room.entities.Subject
-import com.example.itishub.data.room.relations.SubjectWithLessons
-import io.reactivex.Single
+import io.reactivex.disposables.Disposable
 
 interface ContentRepository {
     fun getCreators(): LiveData<List<Creator>>
@@ -21,9 +20,15 @@ interface ContentRepository {
 
     fun getSubjectsException(): LiveData<Throwable?>
 
-    fun updateSubjects()
+    fun sendReview(review: Review): Disposable
 
-    fun updateCreators()
+    fun updateSubjects(): Disposable
+
+    fun updateCreators(): Disposable
 
     fun getSubjectWithLesson(id: Int): LiveData<Subject>
+
+    fun getLessonById(id: Int): LiveData<Lesson>
+
+    fun getReviewException(): LiveData<Throwable?>
 }

@@ -1,28 +1,30 @@
 package com.example.itishub.presenter.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.itishub.data.repositories.ContentRepository
 import com.example.itishub.data.room.entities.Creator
-import com.example.itishub.domain.ContentUseCase
+import io.reactivex.disposables.Disposable
 
 class CreatorsViewModel(
-    private val contentUseCase: ContentUseCase
+    private val contentRepository: ContentRepository
 ) : ViewModel() {
 
-    init {
-        Log.d("MYTAG", "INITIALIZED")
-    }
-
-    private val mCreators: LiveData<List<Creator>> = contentUseCase.getCreators()
-    private val areCreatorsLoaded: LiveData<Boolean> = contentUseCase.areCreatorsLoaded()
+    private val mCreators: LiveData<List<Creator>> = contentRepository.getCreators()
+    private val areCreatorsLoaded: LiveData<Boolean> = contentRepository.areCreatorsLoaded()
+    private val error: LiveData<Throwable?> = contentRepository.getCreatorsException()
+    private var disposable: Disposable? = null
 
     fun creators(): LiveData<List<Creator>> = mCreators
     fun areLoaded(): LiveData<Boolean> = areCreatorsLoaded
+    fun error(): LiveData<Throwable?> = error
+    fun updateCreators() {
+        disposable = contentRepository.updateCreators()
+    }
 
     override fun onCleared() {
         super.onCleared()
+        disposable?.dispose()
     }
 
 }

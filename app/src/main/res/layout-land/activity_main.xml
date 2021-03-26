@@ -10,8 +10,6 @@
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_marginBottom="?attr/actionBarSize"
         >
         <fragment
             android:id="@+id/host_fragment"
@@ -21,14 +19,4 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/routes" />
     </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemIconSize="30dp"
-        app:menu="@menu/bottom_navigation_menu"
-        app:labelVisibilityMode="labeled"
-        android:layout_gravity="bottom"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

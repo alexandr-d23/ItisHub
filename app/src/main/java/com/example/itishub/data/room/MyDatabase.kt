@@ -22,12 +22,12 @@ import com.example.itishub.data.room.entities.UsefulLink
 abstract class MyDatabase : RoomDatabase() {
     abstract val contentDao: ContentDao
 
-    companion object{
+    companion object {
         @Volatile
         private var instance: MyDatabase? = null
 
         fun getInstance(context: Context): MyDatabase {
-            return instance?: Room.databaseBuilder(
+            return instance ?: Room.databaseBuilder(
                 context,
                 MyDatabase::class.java,
                 "db"

@@ -11,21 +11,24 @@ import com.example.itishub.databinding.ItemCreatorBinding
 import com.squareup.picasso.Picasso
 
 class CreatorAdapter(
-    private val iconLinkClick : (url: String) -> Unit,
-) : ListAdapter<Creator, CreatorAdapter.CreatorViewHolder>(object: DiffUtil.ItemCallback<Creator>(){
+    private val iconLinkClick: (url: String) -> Unit,
+) : ListAdapter<Creator, CreatorAdapter.CreatorViewHolder>(object :
+    DiffUtil.ItemCallback<Creator>() {
 
-    override fun areItemsTheSame(oldItem: Creator, newItem: Creator): Boolean = oldItem.id == newItem.id
+    override fun areItemsTheSame(oldItem: Creator, newItem: Creator): Boolean =
+        oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: Creator, newItem: Creator): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: Creator, newItem: Creator): Boolean =
+        oldItem == newItem
 
 }) {
     inner class CreatorViewHolder(
         private val binding: ItemCreatorBinding,
         private val iconClick: (url: String) -> Unit,
-        ): RecyclerView.ViewHolder(binding.root){
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(creator: Creator){
-            with(binding){
+        fun bind(creator: Creator) {
+            with(binding) {
                 ivGithub.setOnClickListener {
                     iconClick.invoke(creator.github)
                 }
@@ -52,6 +55,7 @@ class CreatorAdapter(
             iconLinkClick
         )
 
-    override fun onBindViewHolder(holder: CreatorViewHolder, position: Int) = holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: CreatorViewHolder, position: Int) =
+        holder.bind(getItem(position))
 
 }

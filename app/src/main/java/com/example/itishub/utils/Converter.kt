@@ -8,7 +8,7 @@ import com.example.itishub.data.room.entities.Subject
 import com.example.itishub.data.room.entities.UsefulLink
 
 class Converter {
-    companion object{
+    companion object {
         fun getLessonsFromResponse(list: List<CourseResponse>): List<Lesson> = list
             .flatMap { response ->
                 response.lessons
@@ -30,7 +30,8 @@ class Converter {
                     id = response.id,
                     title = response.title,
                     url = response.url,
-                    lessonsCount = response.lessons.size
+                    lessonsCount = response.lessons.size,
+                    image = response.image
                 )
             }
 
@@ -49,17 +50,18 @@ class Converter {
                     }
             }
 
-        fun getCreatorsFromResponse(list: List<CreatorResponse>) : List<Creator> = list.map { creatorResponse ->
-            Creator(
-                id = creatorResponse.id,
-                avatar = creatorResponse.avatar,
-                about = creatorResponse.about,
-                name = creatorResponse.name,
-                github = creatorResponse.github,
-                surname = creatorResponse.surname,
-                telegram = creatorResponse.telegram,
-                vk = creatorResponse.vk
-            )
-        }
+        fun getCreatorsFromResponse(list: List<CreatorResponse>): List<Creator> =
+            list.map { creatorResponse ->
+                Creator(
+                    id = creatorResponse.id,
+                    avatar = creatorResponse.avatar,
+                    about = creatorResponse.about,
+                    name = creatorResponse.name,
+                    github = creatorResponse.github,
+                    surname = creatorResponse.surname,
+                    telegram = creatorResponse.telegram,
+                    vk = creatorResponse.vk
+                )
+            }
     }
 }

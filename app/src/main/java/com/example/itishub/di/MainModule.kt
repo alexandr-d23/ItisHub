@@ -1,15 +1,12 @@
 package com.example.itishub.di
 
 import android.content.Context
-import androidx.room.Database
+import com.example.itishub.data.repositories.ContentRepository
 import com.example.itishub.data.repositories.ContentRepositoryImpl
 import com.example.itishub.data.retrofit.ApiFactory
 import com.example.itishub.data.retrofit.ContentService
 import com.example.itishub.data.room.ContentDao
 import com.example.itishub.data.room.MyDatabase
-import com.example.itishub.domain.ContentRepository
-import com.example.itishub.domain.ContentUseCase
-import com.example.itishub.domain.ContentUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -28,7 +25,8 @@ class MainModule {
 
     @Singleton
     @Provides
-    fun provideDataBase(@ApplicationContext context: Context): MyDatabase = MyDatabase.getInstance(context)
+    fun provideDataBase(@ApplicationContext context: Context): MyDatabase =
+        MyDatabase.getInstance(context)
 
     @Singleton
     @Provides
@@ -42,8 +40,4 @@ abstract class AbstractMainModule {
     @Singleton
     @Binds
     abstract fun provideRepository(repository: ContentRepositoryImpl): ContentRepository
-
-    @Singleton
-    @Binds
-    abstract fun provideContentUseCase(contentUseCaseImpl: ContentUseCaseImpl): ContentUseCase
 }

@@ -7,10 +7,9 @@
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         style="@style/CardViewBackground"
-        app:cardCornerRadius="16dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,25 +18,25 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_avatar"
+                style="@style/CardViewBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_about"
-                tools:background="@color/black" >
+                tools:background="@color/black">
 
                 <ImageView
                     android:id="@+id/iv_avatar"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:contentDescription="@string/creatorAvatar"
-                    />
+                    android:contentDescription="@string/creatorAvatar" />
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_about"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cv_avatar"
@@ -46,9 +45,10 @@
 
             <TextView
                 android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:textAlignment="center"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cv_avatar"

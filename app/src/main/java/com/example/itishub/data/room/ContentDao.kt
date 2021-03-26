@@ -1,14 +1,13 @@
 package com.example.itishub.data.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.itishub.data.room.entities.Creator
 import com.example.itishub.data.room.entities.Lesson
 import com.example.itishub.data.room.entities.Subject
 import com.example.itishub.data.room.entities.UsefulLink
+import com.example.itishub.data.room.relations.LessonWithLinks
+import com.example.itishub.data.room.relations.SubjectWithLessons
 
 @Dao
 interface ContentDao {
@@ -30,5 +29,13 @@ interface ContentDao {
 
     @Query("SELECT * FROM Subject")
     fun getSubjects(): LiveData<List<Subject>>
+
+    @Transaction
+    @Query("SELECT * FROM Subject WHERE id = :id LIMIT 1")
+    fun getSubjectWithLessons(id: Int): LiveData<SubjectWithLessons>
+
+    @Transaction
+    @Query("SELECT * FROM Lesson WHERE id = :id LIMIT 1")
+    fun getLessonWithLinks(id: Int): LiveData<LessonWithLinks>
 
 }

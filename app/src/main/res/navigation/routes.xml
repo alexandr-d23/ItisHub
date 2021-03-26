@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/routes">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/routes"
+    app:startDestination="@id/i_home">
+
+
+    <fragment
+        android:id="@+id/i_home"
+        android:name="com.example.itishub.presenter.ui.HomeFragment"
+        android:label="mainActivity" />
+
+    <fragment
+        android:id="@+id/i_subjects"
+        android:name="com.example.itishub.presenter.ui.SubjectsFragment"
+        android:label="mainActivity">
+        <action
+            android:id="@+id/actionToSubjectVideosFragment"
+            app:destination="@id/subjectVideosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/i_about"
+        android:name="com.example.itishub.presenter.ui.CreatorsFragment"
+        android:label="mainActivity" />
+
+    <fragment
+        android:id="@+id/subjectVideosFragment"
+        android:name="com.example.itishub.presenter.ui.SubjectLessonsFragment"
+        android:label="SubjectVideosFragment">
+        <argument
+            android:name="subjectId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="imageUri"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_subjectVideosFragment_to_youtubeFragment"
+            app:destination="@id/lessonFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.example.itishub.presenter.ui.LessonFragment"
+        android:label="VideoFragment" >
+        <argument
+            android:name="lessonId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
 
 </navigation>
