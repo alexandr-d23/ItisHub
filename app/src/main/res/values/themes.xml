@@ -16,9 +16,5 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name = "CardViewBackground" parent="CardView">
-        <item name="cardBackgroundColor">@color/card_view_background</item>
-        <item name="cardCornerRadius">24dp</item>
-    </style>
 
 </resources>

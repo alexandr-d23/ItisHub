@@ -1,18 +1,3 @@
 <resources>
     <string name="app_name">ItisHub</string>
-    <string name="Main">Главная</string>
-    <string name="Subjects">Предметы</string>
-    <string name="about_us">О нас</string>
-    <string name="item_lessons">Уроков</string>
-    <string name="creatorAvatar">creatorAvatar</string>
-    <string name="no_internet">Нет интернета</string>
-    <string name="transitionName">image_transition</string>
-    <string name="useful_links">Полезные ссылки:</string>
-    <string name="dialog_email">email</string>
-    <string name="dialog_review">review</string>
-    <string name="dialog_send">Отправить</string>
-    <string name="dialog_cancel">Отмена</string>
-    <string name="home_welcome">Welcome to the hub, buddy</string>
-    <string name="home_send_review">Написать</string>
-    <string name="home_review_text">Нашли баг или ошибку? Напишите нам!</string>
 </resources>
